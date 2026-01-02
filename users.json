@@ -1,0 +1,86 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "Joy",
+            "age": 23,
+            "programmer": true,
+            "skills": [
+                "Python",
+                "JavaScript",
+                "C++"
+            ],
+            "city": {
+                "country": "Bangladesh",
+                "city": "Dhaka",
+                "postCode": "1212",
+                "hometown": "Noakhali"
+            }
+        },
+        {
+            "id": 2,
+            "name": "Kotha",
+            "age": 22,
+            "programmer": false,
+            "skills": [],
+            "city": {
+                "country": "Bangladesh",
+                "city": "Mehendiganj",
+                "hometown": "Barishal"
+            }
+        },
+        {
+            "id": 3,
+            "name": "Niloy",
+            "age": 23,
+            "programmer": true,
+            "skills": [
+                "Java",
+                "React",
+                "Node.js",
+                "Python",
+                "C++"
+            ],
+            "city": {
+                "country": "Bangladesh",
+                "city": "Maijdeer",
+                "postCode": "3800",
+                "hometown": "Noakhali"
+            }
+        },
+        {
+            "id": 4,
+            "name": "Aninda",
+            "age": 19,
+            "programmer": true,
+            "skills": [
+                "HTML",
+                "CSS",
+                "PHP"
+            ],
+            "city": {
+                "country": "Bangladesh",
+                "city": "Dhaka",
+                "postCode": "1212",
+                "hometown": "Noakhali"
+            }
+        },
+        {
+            "id": 5,
+            "name": "Sabbir",
+            "age": 22,
+            "programmer": true,
+            "skills": [
+                "PHP",
+                "JavaScript",
+                "Laravel"
+            ],
+            "city": {
+                "country": "Bangladesh",
+                "city": "Dhaka",
+                "postCode": "1212",
+                "hometown": "munshiganj"
+            }
+        }
+    ]
+}

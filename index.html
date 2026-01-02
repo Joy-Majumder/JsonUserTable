@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Directory</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>User Directory</h1>
+            <p class="subtitle">Browse our community members through json</p>
+        </header>
+        
+        <div id="userList" class="user-grid"></div>
+    </div>
+
+    <script>
+        fetch('users.json')
+            .then(response => response.json())
+            .then(json => {
+                const userList = document.getElementById('userList');
+                
+                json.users.forEach(user => {
+                    const userCard = document.createElement('div');
+                    userCard.className = 'user-card';
+                    
+                    const skillsBadges = user.skills.length > 0 
+                        ? user.skills.map(skill => `<span class="skill-badge">${skill}</span>`).join('')
+                        : '<span class="no-skills">No skills listed</span>';
+                    
+                    userCard.innerHTML = `
+                        <div class="user-header">
+                            <div class="user-avatar">${user.name.charAt(0)}</div>
+                            <div class="user-info">
+                                <h2>${user.name}</h2>
+                                <p class="user-age">Age: ${user.age}</p>
+                            </div>
+                        </div>
+                        <div class="user-details">
+                            <div class="detail-row">
+                                <span class="label">📍 Location:</span>
+                                <span>${user.city.city}, ${user.city.country}</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">🏠 Hometown:</span>
+                                <span>${user.city.hometown}</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">💻 Programmer:</span>
+                                <span class="${user.programmer ? 'yes' : 'no'}">${user.programmer ? 'Yes' : 'No'}</span>
+                            </div>
+                        </div>
+                        <div class="skills-section">
+                            <h3>Skills</h3>
+                            <div class="skills-container">
+                                ${skillsBadges}
+                            </div>
+                        </div>
+                    `;
+                    
+                    userList.appendChild(userCard);
+                });
+            })
+            .catch(error => {
+                console.error('Error loading users:', error);
+                document.getElementById('userList').innerHTML = '<p class="error">Failed to load users</p>';
+            });
+    </script>
+</body>
+
+</html>
